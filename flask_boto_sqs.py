@@ -31,9 +31,7 @@ class FlaskBotoSQS(object):
 
         close_on_teardown = conf.pop('close_on_teardown', False)
 
-        session = Session(aws_access_key_id=conf['aws_access_key_id'],
-                          aws_secret_access_key=conf['aws_secret_access_key'],
-                          region_name=conf['region'])
+        session = Session(**conf)
         sqs = session.resource('sqs')
 
         app.extensions.setdefault('botosqs', {})
