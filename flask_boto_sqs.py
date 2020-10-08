@@ -4,7 +4,7 @@ Boto3 SQS integration for Flask
 by LyuGGang (https://github.com/LyuGGang/Flask-BotoSQS)
 """
 import flask
-from boto3.session import Session
+import boto3
 
 class FlaskBotoSQS(object):
 
