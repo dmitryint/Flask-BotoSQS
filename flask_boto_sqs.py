@@ -31,8 +31,7 @@ class FlaskBotoSQS(object):
 
         close_on_teardown = conf.pop('close_on_teardown', False)
 
-        session = Session(**conf)
-        sqs = session.resource('sqs')
+        sqs = boto3.client(**conf)
 
         app.extensions.setdefault('botosqs', {})
         app.extensions['botosqs'][self] = sqs
